@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="row1">
+        <div class="col1">
+            <ul type="none">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">Signup</a></li>
+            </ul>
+        </div>
+        <div class="col2">
+            <h1>MY PAGE</h1>
+        </div>
+    </div>
+    <div class="big">
+        <div class="row2">
+            <form>
+                <div>
+                    <label for="name" class="pp">Name</label>
+                    <input type="text" id="name" class="tt">
+                    <div class="error"></div>
+                </div>
+                <div>
+                    <lable for="email" class="pp" for="num">Email</lable>
+                    <input type="email" id="email" class="tt">
+                    <div class="error"></div>
+                </div>
+                <div>
+                    
+                    <lable class="pp" for="num">phone</lable>
+                    <input type="number" id="num" class="tt">
+                    <div class="error"></div>
+                </div>
+                <div>
+                    
+                    <label class="pp">Travel</label>
+                    <input type="checkbox" id="fl" name="tt" class="check" value="flight"><label class="cc" for>Flight</label>
+                    <input type="checkbox" id="bus" name="tt" class="check" value="bus"><label class="cc" for>Bus</label>
+                    <input type="checkbox" id="tr" name="tt" class="check" value="train"><label class="cc" for>Train</label>
+                    <div class="error"></div>
+                </div>
+                    <div class="but">
+                        <button type="button" onclick="submitdata()">sumbit</button>
+                    </div>
+                    <script>
+                        function submitdata() {
+                            let name1=document.getElementById("name");
+                            console.log(name);
+                            console.log(name1.value);
+                            //let finalname=name1.value;
+
+                            let email=document.getElementById("email");
+                            console.log(email);
+                            console.log(email.value);
+                            //let finalemail=email.value;
+
+                            let phone=document.getElementById("num");
+                            console.log(phone);
+                            console.log(phone.value);
+                            //let finalphone=phone.value;
+
+                            let checks=document.getElementsByName("tt");
+                            let sadha=[];
+                            for(let travel of checks){
+                                if (travel.checked){
+                                    sadha.push(travel.value);
+                                }
+
+                            }
+                            console.log(sadha)
+                            let ramya=sadha.join();
+                            
+                            
+                            //let finalarr=arr.values;
+
+                            //console.log(finalname1)
+                            //console.log(finalemail);
+                            //console.log(finalname);
+                            //console.log(finalarr);
+                            
+
+                            if(name1.value===''){
+                                setError(name1,"name is empty")
+                            }
+                            else{
+                                setSuccess(name1);
+                            }
+                        
+                       
+                        if(email.value===''){
+                                setError(email,"mail is empty")
+                            }
+                            else{
+                                setSuccess(email);
+                            }
+                        
+                        
+                        
+                        if(phone.value===''){
+                                setError(phone,"num is empty")
+                            }
+                            else{
+                                setSuccess(phone);
+                            }
+                            if(ramya===''){
+                            setError(checks[0],"travel is empty")
+                                
+                            }
+                            else{
+                                setSuccess(checks[0]);
+                            }
+
+                        
+                            
+                            function setError(element,msg){
+                            let parents=element.parentElement;
+                            let resfinal=parents.querySelector(".error");
+                            resfinal.innerText=msg;
+                        }
+                        function setSuccess(element){
+                            let parents= element.parentElement;
+                            let resfinal= parents.querySelector(".error");
+                            resfinal.innerText='';
+                        }
+                        
+                        
+
+                    }
+                    </script>
+                
+            </form>
+        </div>
+    </div>
+</body>
+</html>
